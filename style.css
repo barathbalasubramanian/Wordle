@@ -80,6 +80,7 @@ hr {
     display: flex;
     justify-content: center;
     align-items: center; 
+    color: white;
     
 }
 
@@ -117,18 +118,13 @@ hr {
 
 }
 
-.not-finish {
+.not-finish,.not-found {
     color: red;
-}
-
-.not-found {
-    lighting-color: green;
 }
 
 .found {
     color: #6fb96f;
 }
-
 
 .refresh {
     position: absolute;
@@ -221,7 +217,7 @@ hr {
       right: 0;
       top: 0;
       bottom: 0;
-      z-index: 3;
+      z-index: 2;
       animation:move-background 150s linear infinite;
   }
   img{
@@ -234,7 +230,7 @@ hr {
 
 @media only screen and (max-width:900px) {
     .keyboard {
-        width: 21em;
+        width: 22em;
     }
     .inputboxs {
         margin: 1em 0 0 0;
@@ -242,12 +238,13 @@ hr {
         gap: .5em;
     }
     .keys {
-        width: 25px;
+        width: 27px;
         height: 30px;
         border-radius: 3px;
     }
     .enterkey{
-        width : 3em;
+        width: 5em;
+        MARGIN-LEFT: 5PX;
     }
     #Key⌫ {
         width: 2em;
