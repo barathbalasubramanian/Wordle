@@ -96,11 +96,12 @@ hr {
     font-weight: bold;
 }
 
-.correct {
-    background-color: #6fb96f;
+.absent {
+    background-color: #202020;
     color: white;
-    transform: rotateX(-360deg);
-    transition: .5s;
+    transform: rotateY(-360deg);
+    transition: .75s;
+
 }
 
 .present {
@@ -110,12 +111,11 @@ hr {
     transition: .5s;
 }
 
-.absent {
-    background-color: #202020;
+.correct {
+    background-color: #6fb96f;
     color: white;
-    transform: rotateY(-360deg);
-    transition: .75s;
-
+    transform: rotateX(-360deg);
+    transition: .5s;
 }
 
 .not-finish,.not-found {
@@ -132,6 +132,9 @@ hr {
     right: 0;
     color: white;
     padding: 0.3em;
+}
+.word {
+    color: green;
 }
 
 @keyframes move-background {
