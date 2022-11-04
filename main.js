@@ -261,6 +261,7 @@ function processInput(e) {
     
 
     else if (e == 'Backspace') {
+        document.querySelector('.err').innerHTML = ""
         if (col > 0 && col <= width) {
             col -= 1
             let currbox = document.getElementById(row.toString() + '-' + col.toString())
