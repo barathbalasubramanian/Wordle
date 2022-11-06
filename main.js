@@ -255,6 +255,7 @@ function processInput(e) {
             update();
             if (row == 6) {
                     document.querySelector('.err').innerHTML = word.toUpperCase()
+                    document.querySelector('.err').classList.add('sry')
                     gameover = true
                 }
             }
