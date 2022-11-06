@@ -318,7 +318,7 @@ function update() {
             letter_len[currbox.innerHTML] -= 1
             correct += 1
             if (correct == 5) {
-                verticalShake(row)
+                
                 start()
                 document.querySelector('.err').innerHTML = "SUPER BRUH!!!"
                 document.querySelector('.err').classList.add('found')
@@ -391,21 +391,3 @@ function removeshake(row) {
     }
 }
 
-function verticalShake(row) {
-    console.log('hi')
-    for ( let i=0 ; i<width ; i++ ) {
-        let currbox = document.getElementById(row.toString() + '-' + i.toString())
-        currbox.classList.add('Vshake')
-    }
-    setTimeout(function () {
-        removeVshake(row)
-    }, 1000);
-    
-}
-
-function removeVshake(row) {
-    for ( let i=0 ; i<width ; i++ ) {
-        let currbox = document.getElementById(row.toString() + '-' + i.toString())
-        currbox.classList.remove('Vshake')
-    }
-}
