@@ -181,7 +181,8 @@ let words = ['aback', 'abase', 'abate', 'abbey', 'abbot', 'abhor', 'abide', 'abl
 'toxic', 'toxin', 'trace', 'track', 'tract', 'trade', 'trail', 'train', 'trait', 'tramp', 'trash', 'trawl', 'tread', 'treat', 'trend', 'triad', 'trial', 'tribe', 'trice', 'trick', 'tried', 'tripe', 'trite', 'troll', 'troop', 'trope', 'trout', 'trove', 'truce', 'truck', 'truer', 'truly', 'trump', 'trunk', 'truss', 'trust', 'truth', 'tryst', 'tubal', 'tuber', 'tulip', 'tulle', 'tumor', 'tunic', 'turbo', 'tutor', 'twang', 'tweak', 'tweed', 'tweet', 'twice', 'twine', 'twirl', 'twist', 'twixt', 'tying', 'udder', 'ulcer', 'ultra', 'umbra', 'uncle', 'uncut', 'under', 'undid', 'undue', 'unfed', 'unfit', 'unify', 'union', 'unite', 'unity', 'unlit', 'unmet', 'unset', 'untie', 'until', 'unwed', 'unzip', 'upper', 'upset', 'urban', 'urine', 'usage', 'usher', 'using', 'usual', 'usurp', 'utile', 'utter', 'vague', 'valet', 'valid', 'valor', 'value', 'valve', 'vapid', 'vapor', 'vault', 'vaunt', 'vegan', 'venom', 'venue', 'verge', 'verse', 'verso', 'verve', 'vicar', 'video', 'vigil', 'vigor', 'villa', 'vinyl', 'viola', 'viper', 'viral', 'virus', 'visit', 'visor', 'vista', 'vital', 'vivid', 'vixen', 'vocal', 'vodka', 'vogue', 'voice', 'voila', 'vomit', 'voter', 'vouch', 'vowel', 'vying', 'wacky', 'wafer', 'wager', 'wagon', 'waist', 'waive', 'waltz', 'warty', 'waste', 'watch', 'water', 'waver', 'waxen', 'weary', 'weave', 'wedge', 'weedy', 'weigh', 'weird', 'welch', 'welsh', 'whack', 'whale', 'wharf', 'wheat', 'wheel', 'whelp', 'where', 'which', 'whiff', 'while', 'whine', 'whiny', 'whirl', 'whisk', 'white', 'whole', 'whoop', 'whose', 'widen', 'wider', 'widow', 'width', 'wield', 'wight', 'willy', 'wimpy', 'wince', 'winch', 'windy', 'wiser', 'wispy', 'witch', 'witty', 'woken', 'woman', 'women', 'woody', 'wooer', 'wooly', 'woozy', 'wordy', 'world', 'worry', 'worse', 'worst', 'worth', 'would', 'wound', 'woven', 'wrack', 'wrath', 'wreak', 'wreck', 'wrest', 'wring', 'wrist', 'write', 'wrong', 'wrote', 'wrung', 'wryly', 'yacht', 'yearn', 'yeast', 'yield', 'young', 'youth', 'zebra', 'zesty', 'zonal']
 
 let random_word = Math.floor(Math.random() * words.length)
-let word = words[random_word].toUpperCase()
+// let word = words[random_word].toUpperCase()
+let word = 'HOVEL'
 
 window.onload = function () { setbox(), setkeyboard() };
 
@@ -246,8 +247,9 @@ function processInput(e) {
 
         let end = document.getElementById(row.toString() + '-' + '4')
         if (end.innerHTML == '') {
-            document.querySelector('.err').innerHTML = "WORD NOT FINISH"
+            // document.querySelector('.err').innerHTML = "WORD NOT FINISH"
             document.querySelector('.err').classList.add('not-finish')
+            shake(row)
         }
         else {
             document.querySelector('.err').innerHTML = ""
@@ -295,8 +297,9 @@ function update() {
     }
     
     if ( !words.includes(guessWord.toLowerCase())) {
-        document.querySelector('.err').innerHTML = "WORD NOT FOUND"
+        // document.querySelector('.err').innerHTML = "WORD NOT FOUND"
         document.querySelector('.err').classList.add('not-found')
+        shake(row)
         return  
     }
     else {
@@ -315,6 +318,7 @@ function update() {
             letter_len[currbox.innerHTML] -= 1
             correct += 1
             if (correct == 5) {
+                verticalShake(row)
                 start()
                 document.querySelector('.err').innerHTML = "SUPER BRUH!!!"
                 document.querySelector('.err').classList.add('found')
@@ -369,3 +373,39 @@ function reload() {
     window.location.reload()
 }
 
+function shake(row) {
+    for ( let i=0 ; i<width ; i++ ) {
+        let currbox = document.getElementById(row.toString() + '-' + i.toString())
+        currbox.classList.add('shake')
+    }
+    setTimeout(function () {
+        removeshake(row)
+    }, 1000);
+    
+}
+
+function removeshake(row) {
+    for ( let i=0 ; i<width ; i++ ) {
+        let currbox = document.getElementById(row.toString() + '-' + i.toString())
+        currbox.classList.remove('shake')
+    }
+}
+
+function verticalShake(row) {
+    console.log('hi')
+    for ( let i=0 ; i<width ; i++ ) {
+        let currbox = document.getElementById(row.toString() + '-' + i.toString())
+        currbox.classList.add('Vshake')
+    }
+    setTimeout(function () {
+        removeVshake(row)
+    }, 1000);
+    
+}
+
+function removeVshake(row) {
+    for ( let i=0 ; i<width ; i++ ) {
+        let currbox = document.getElementById(row.toString() + '-' + i.toString())
+        currbox.classList.remove('Vshake')
+    }
+}
