@@ -253,7 +253,7 @@ function processInput(e) {
         else {
             document.querySelector('.err').innerHTML = ""
             update();
-            if (row == 6) {
+            if (row == 6 && correct!= 5 ) {
                     document.querySelector('.err').innerHTML = word.toUpperCase()
                     document.querySelector('.err').classList.add('sry')
                     gameover = true
