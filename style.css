@@ -146,18 +146,6 @@ hr {
     animation: .5s horizontal-shaking  ;
 }
 
-.Vshake {
-    animation: .5s vertical-shake 
-}
-
-@keyframes vertical-shake {
-    0% { transform: translateY(0) }
-    25% { transform: translateY(-10px) }
-    50% { transform: translateY(20px) }
-    75% { transform: translateY(-10px) }
-    100% { transform: translateY(0) }
-}
-
 @keyframes horizontal-shaking {
     0% { transform: translateX(0) }
     25% { transform: translateX(15px) }
